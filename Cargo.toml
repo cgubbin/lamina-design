@@ -1,0 +1,35 @@
+[package]
+name = "lamina-design"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Rust project template with library and binary"
+license = "MIT"
+
+[lib]
+name = "lamina_design"
+path = "src/lib.rs"
+
+
+[dependencies]
+thiserror = "2.0.20"
+lamina-core = {path = "../lamina-core"}
+lamina-materials = {path = "../lamina-materials"}
+lamina-units = {path = "../lamina-units"}
+
+[dev-dependencies]
+approx = "0.5.1"
+
+
+[profile.dev]
+debug = true
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+
+[workspace.metadata.release]
+tag = true
+push = true
+publish = true
+sign-commit = false
